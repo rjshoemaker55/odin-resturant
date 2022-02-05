@@ -38,4 +38,5 @@ const Navbar = (pageWrapper) => {
     nav.render(pageWrapper)
   }
 }
+//
 export default Navbar
