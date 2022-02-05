@@ -4,11 +4,14 @@ const elementMethods = {
       this.element.setAttribute(key, this.options.attributes[key])
     })
   },
+  setOnClickEvents: function () {
+    this.element.onclick = () => this.options.onClick(this)
+  },
   addContent: function (content) {
     this.element.innerHTML = content
   },
   render: function (location) {
-    location.append(this.element)
+    location.element.append(this.element)
   }
 }
 
@@ -23,7 +26,14 @@ const Element = function (type, classname, options) {
   newElement.classname = classname
   newElement.options = options || {}
 
-  console.log(`Element Initialized: ${newElement}`)
+  if ('attributes' in newElement.options) {
+    newElement.setAttributes()
+  }
+
+  if ('onClick' in newElement.options) {
+    newElement.setOnClickEvents()
+  }
+
   return newElement
 }
 

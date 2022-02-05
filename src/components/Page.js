@@ -7,10 +7,7 @@ export default function Page(root) {
 
   pageWrapper.render(root)
   pageHeader.addContent("RJ's Restaraunt")
-  pageHeader.render(pageWrapper.element)
+  pageHeader.render(pageWrapper)
 
-  console.log(pageWrapper)
-  console.log(pageHeader)
-
-  // Navbar(pageWrapper)
+  Navbar(pageWrapper)
 }

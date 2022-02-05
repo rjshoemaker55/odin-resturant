@@ -1,5 +1,6 @@
+import Element from '../utils/Element'
+
 export default function Background(root) {
-  const bg = document.createElement('div')
-  bg.classList.add('background')
-  root.append(bg)
+  const bg = Element('div', 'background')
+  bg.render(root)
 }
