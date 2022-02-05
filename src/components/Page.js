@@ -6,11 +6,11 @@ export default function Page() {
   const pageHeader = Element('h1', 'page-wrapper__header')
 
   pageWrapper.init()
-  pageWrapper.addToDom(document.getElementById('root'))
+  // pageWrapper.addToDom(document.getElementById('root'))
 
-  pageHeader.init()
-  pageHeader.addContent("RJ's Restaraunt")
-  pageHeader.addToDom(pageWrapper.element)
+  // pageHeader.init()
+  // pageHeader.addContent("RJ's Restaraunt")
+  // pageHeader.addToDom(pageWrapper.element)
 
   Navbar()
 

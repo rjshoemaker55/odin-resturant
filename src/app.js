@@ -6,4 +6,6 @@ const root = document.getElementById('root')
 export default function app() {
   Background(root)
   Page()
+
+  nameThree(1, 2, 3)
 }

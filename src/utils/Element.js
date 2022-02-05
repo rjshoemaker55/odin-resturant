@@ -25,7 +25,7 @@ const elementMethods = {
 const Element = function (type, classname, options) {
   console.log(arguments)
   console.log(options)
-  // let newElement = Object.create(elementMethods)
+  let newElement = Object.create(elementMethods)
 
   newElement.type = type
   newElement.classname = classname
