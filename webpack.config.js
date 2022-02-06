@@ -1,16 +1,19 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path')
 
 module.exports = {
   mode: 'development',
   devServer: {
     static: './dist'
   },
-  // plugins: [
-  //   new HtmlWebpackPlugin({
-  //     title: 'Resaurant'
-  //   })
-  // ],
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'Resaraunt',
+      template: './src/index.html'
+    })
+  ],
   output: {
+    path: path.resolve(__dirname, 'dist'),
     filename: '[name].bundle.js'
   },
   module: {
