@@ -5,5 +5,5 @@ const root = { element: document.getElementById('root') }
 
 export default function app() {
   Background(root)
-  Page(root)
+  Page(root, 'home')
 }

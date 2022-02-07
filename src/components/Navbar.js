@@ -1,7 +1,7 @@
 import Element from '../utils/Element'
 
 const Navbar = (pageWrapper) => {
-  const nav = Element('div', 'navbar-wrapper')
+  const nav = Element('div', 'navbar-wrapper', pageWrapper)
 
   const navLinks = [
     {
@@ -21,7 +21,7 @@ const Navbar = (pageWrapper) => {
   const navItems = document.getElementsByClassName('navbar-link')
 
   for (let i = 0; i <= 2; i++) {
-    let navBtn = Element('a', 'navbar-link', {
+    let navBtn = Element('a', 'navbar-link', nav, {
       attributes: { href: navLinks[i].url },
       active: false,
       onClick: function (elem) {
@@ -35,7 +35,7 @@ const Navbar = (pageWrapper) => {
 
     navBtn.addContent(navLinks[i].text)
     nav.element.append(navBtn.element)
-    nav.render(pageWrapper)
+    nav.render(nav.parentElement)
   }
 }
 //

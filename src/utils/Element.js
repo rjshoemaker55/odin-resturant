@@ -1,6 +1,7 @@
 const elementMethods = {
   setAttributes: function () {
     Object.keys(this.options.attributes).forEach((key) => {
+      console.log(`attribute: ${key}, prop: ${this.options.attributes[key]}`)
       this.element.setAttribute(key, this.options.attributes[key])
     })
   },
@@ -10,12 +11,12 @@ const elementMethods = {
   addContent: function (content) {
     this.element.innerHTML = content
   },
-  render: function (location) {
-    location.element.append(this.element)
+  render: function () {
+    this.parentElement.element.append(this.element)
   }
 }
 
-const Element = function (type, classname, options) {
+const Element = function (type, classname, parentElement, options) {
   let newElement = Object.create(elementMethods)
 
   let newElementObj = document.createElement(type)
@@ -25,6 +26,7 @@ const Element = function (type, classname, options) {
   newElement.element = newElementObj
   newElement.classname = classname
   newElement.options = options || {}
+  newElement.parentElement = parentElement
 
   if ('attributes' in newElement.options) {
     newElement.setAttributes()
@@ -34,6 +36,7 @@ const Element = function (type, classname, options) {
     newElement.setOnClickEvents()
   }
 
+  console.log(`Element Created: ${JSON.stringify(newElement)}`)
   return newElement
 }
 
