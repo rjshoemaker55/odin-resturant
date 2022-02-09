@@ -18,17 +18,21 @@ const elementMethods = {
   }
 }
 
-const Element = function (type, classname, parentElement, options) {
+const Element = function (type, classes, parentElement, options) {
   let newElement = Object.create(elementMethods)
 
   let newElementObj = document.createElement(type)
-  newElementObj.classList.add(classname)
 
   newElement.type = type
   newElement.element = newElementObj
-  newElement.classname = classname
   newElement.options = options || {}
   newElement.parentElement = parentElement
+  newElement.classes = classes?.split(' ')
+
+  // add classes to element
+  newElement.classes?.forEach((classname) =>
+    newElementObj.classList.add(classname)
+  )
 
   if ('attributes' in newElement.options) {
     newElement.setAttributes()

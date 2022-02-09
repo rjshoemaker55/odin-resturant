@@ -7,7 +7,7 @@ const pageData = {
     content: [
       {
         type: 'img',
-        classname: 'home-img',
+        classes: 'home-img',
         options: {
           attributes: {
             src: 'https://www.placecage.com/300/200'
@@ -16,7 +16,7 @@ const pageData = {
       },
       {
         type: 'h3',
-        classname: 'hello',
+        classes: 'hello',
         text: 'Welcome!!'
       }
     ]
@@ -26,8 +26,17 @@ const pageData = {
     content: [
       {
         type: 'h2',
-        classname: 'about-sub',
+        classes: 'about-sub',
         text: 'Hello'
+      }
+    ]
+  },
+  Contact: {
+    header: 'Contact',
+    content: [
+      {
+        type: 'h3',
+        text: 'Contact us'
       }
     ]
   }

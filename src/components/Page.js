@@ -26,7 +26,7 @@ export default function Page(root, page) {
 
       const newContentItem = Element(
         currentData.type,
-        currentData.classname,
+        currentData.classes,
         pageContentWrapper,
         currentData.options && currentData.options
       )

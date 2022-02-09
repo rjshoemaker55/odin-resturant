@@ -21,9 +21,9 @@ const Navbar = (pageWrapper, changePage) => {
   const navItems = document.getElementsByClassName('navbar-link')
 
   for (let i = 0; i <= 2; i++) {
-    let navBtn = Element('a', 'navbar-link', nav, {
+    let navBtn = Element('a', `navbar-link ${i === 0 && 'active'}`, nav, {
       attributes: { href: navLinks[i].url },
-      active: false,
+      active: i === 0 ? true : false,
       onClick: function (elem) {
         changePage(navLinks[i].text)
 
