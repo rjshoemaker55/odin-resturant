@@ -11,32 +11,34 @@ export default function Page(root, page) {
     pageWrapper
   )
 
-  pageHeader.addContent(pageData[page].header)
-  pageHeader.render()
-
-  pageWrapper.render()
-
-  for (let i in pageData[page].content) {
-    const currentData = pageData[page].content[i]
-
-    const newContentItem = Element(
-      currentData.type,
-      currentData.classname,
-      pageContentWrapper,
-      currentData.options && currentData.options
-    )
-
-    if (currentData.text) {
-      newContentItem.addContent(currentData.text)
-    }
-
-    newContentItem.render()
+  const initPage = (pageToSet) => {
+    setPageContent(pageToSet)
+    pageWrapper.render()
+    pageHeader.render()
+    pageContentWrapper.render()
   }
 
-  pageContentWrapper.render()
+  const setPageContent = (pageToSet) => {
+    pageContentWrapper.clearContent()
+    pageHeader.setContent(pageData[pageToSet].header)
+    for (let i in pageData[pageToSet].content) {
+      const currentData = pageData[pageToSet].content[i]
 
-  // pageContentWrapper.addContent('hello')
-  pageContentWrapper.render()
+      const newContentItem = Element(
+        currentData.type,
+        currentData.classname,
+        pageContentWrapper,
+        currentData.options && currentData.options
+      )
 
-  Navbar(pageWrapper)
+      if (currentData.text) {
+        newContentItem.setContent(currentData.text)
+      }
+
+      newContentItem.render()
+    }
+  }
+
+  initPage(page)
+  Navbar(pageWrapper, setPageContent)
 }

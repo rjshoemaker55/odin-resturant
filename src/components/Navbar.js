@@ -1,6 +1,6 @@
 import Element from '../utils/Element'
 
-const Navbar = (pageWrapper) => {
+const Navbar = (pageWrapper, changePage) => {
   const nav = Element('div', 'navbar-wrapper', pageWrapper)
 
   const navLinks = [
@@ -25,6 +25,8 @@ const Navbar = (pageWrapper) => {
       attributes: { href: navLinks[i].url },
       active: false,
       onClick: function (elem) {
+        changePage(navLinks[i].text)
+
         Array.from(navItems).forEach((item) => {
           item.classList.remove('active')
         })
@@ -33,7 +35,7 @@ const Navbar = (pageWrapper) => {
       }
     })
 
-    navBtn.addContent(navLinks[i].text)
+    navBtn.setContent(navLinks[i].text)
     nav.element.append(navBtn.element)
     nav.render(nav.parentElement)
   }

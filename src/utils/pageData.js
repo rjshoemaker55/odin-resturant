@@ -1,7 +1,7 @@
 import Element from '../utils/Element'
 
 const pageData = {
-  home: {
+  Home: {
     header: "RJ's Restaraunt",
     subHeader: 'The best restaraunt in town!',
     content: [
@@ -21,8 +21,15 @@ const pageData = {
       }
     ]
   },
-  about: {
-    header: 'About'
+  About: {
+    header: 'About',
+    content: [
+      {
+        type: 'h2',
+        classname: 'about-sub',
+        text: 'Hello'
+      }
+    ]
   }
 }
 
