@@ -20,6 +20,9 @@ const pageData = {
         text: 'Welcome!!'
       }
     ]
+  },
+  about: {
+    header: 'About'
   }
 }
 
